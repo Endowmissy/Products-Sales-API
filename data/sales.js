@@ -1,13 +1,14 @@
-const sales =  {
-       sale1: {
+const sales = [
+       {
+        "id" : 1,
         "price" : "5000",
-        "id" : 1
+        
        },
-       sale2: {
+       {
+        "id" : 2,
         "price" : "45000",
-        "id" : 2
+        
        }
-}
-
+];
 
 export default sales;

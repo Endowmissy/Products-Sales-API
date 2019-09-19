@@ -11,7 +11,7 @@ var _users = _interopRequireDefault(require("../data/users"));
 
 var auth = function auth(req, res, next) {
   if (_users["default"].some(function (a) {
-    return a.email === req.body.email;
+    return a.email === req.headers.email;
   })) {
     next();
   } else {

@@ -1,5 +1,4 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import sales from '../data/sales';
 
 const salesRoutes = express.Router();
@@ -13,15 +12,19 @@ salesRoutes.get ('/', (req, res) => {
 
 //Retrieve a single sale by Id
 salesRoutes.get ('/:id', (req, res) => {
-    const { id } = req.params;
-    const sale = sales[`sale${id}`];
-    res.json(sale);
+    const id = parseInt(req.params.id);
+    sales.map((sale) => {
+        if(sale.id === id) {
+            res.json(sale)
+        }
+    });
 });
 
 //Add new sales
 salesRoutes.post ('/', (req, res) => {
     const newSale = req.body;
-    sales["sale" + newSale.id] = newSale;
+    let sales = [];
+    sales.push(newSale);
     res.json(newSale);
 });
 

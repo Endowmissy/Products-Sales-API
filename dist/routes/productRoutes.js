@@ -19,16 +19,19 @@ productRoutes.get('/', function (req, res) {
 }); //Retrieve a single product by Id
 
 productRoutes.get('/:id', function (req, res) {
-  var id = req.params.id;
+  var id = parseInt(req.params.id);
 
-  var product = _products["default"]["product".concat(id)];
-
-  res.json(product);
+  _products["default"].map(function (product) {
+    if (product.id === id) {
+      res.json(product);
+    }
+  });
 }); //Add new product
 
 productRoutes.post('/', function (req, res) {
   var newProduct = req.body;
-  _products["default"]["product" + newProduct.id] = newProduct;
+  var products = [];
+  products.push(newProduct);
   res.json(newProduct);
 });
 var _default = productRoutes;
