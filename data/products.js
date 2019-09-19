@@ -1,24 +1,25 @@
-const products = {
-       product1: {
+const products = [
+        {
+        "id" : 1,
         "name" : "wristWatch",
         "category" : "fashion",
         "price" : 5000,
         "quantity" : 10,
         "description" : "analog",
-        "image_url" : "pictures/picture_1.jpg",
-        "id" : 1
+        "image_url" : "http://dummyimage.com/209x208.png/cc0000/ffffff",
+        
        },
-       product2: {
+        {
+        "id" : 2,
         "name" : "dell",
         "category" : "computing",
         "price" : 50000,
         "quantity" : 5,
         "description" : "laptop",
-        "image_url" : "pictures/picture_2.jpg",
-        "id" : 2
-       }
+        "image_url" : "http://dummyimage.com/170x205.png/dddddd/000000",
+       },
 
-}
+]
 ;
 
 export default products;

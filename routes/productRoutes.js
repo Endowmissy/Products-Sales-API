@@ -10,15 +10,18 @@ productRoutes.get ('/', (req, res) => {
 
 //Retrieve a single product by Id
 productRoutes.get ('/:id', (req, res) => {
-    const { id } = req.params;
-    const product = products[`product${id}`];
-    res.json(product);
+    const id = parseInt(req.params.id);
+    products.map((product) => {
+        if(product.id === id) {
+            res.json(product)
+        }
+    });
 });
-
 //Add new product
 productRoutes.post ('/', (req, res) => {
     const newProduct = req.body;
-    products["product" + newProduct.id] = newProduct;
+    let products = [];
+    products.push(newProduct);
     res.json(newProduct);
 });
 

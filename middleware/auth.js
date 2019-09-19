@@ -1,6 +1,6 @@
 import users from '../data/users';
 const auth = (req, res, next) => {
-    if(users.some( a => a.email === req.body.email)) {
+    if(users.some( a => a.email === req.headers.email)) {
        next();
     } else {
         res.statusCode = 401;
